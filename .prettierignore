@@ -15,6 +15,7 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .vite
+.storybook
 .husky
 .idea
 .DS_Store
