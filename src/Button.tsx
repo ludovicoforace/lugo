@@ -5,7 +5,7 @@ import { color } from './shared/styles'
 const Button = styled.button<{ disabled?: boolean; bgColor?: string }>`
   ${(props) => {
     const backgroundColor = props.bgColor || color.primary
-    const disabledBgColor = grayscale(backgroundColor)
+    const disabledBgColor = grayscale(color.primary)
 
     return `
       position: relative;
