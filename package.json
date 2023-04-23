@@ -2,14 +2,15 @@
   "name": "lugo",
   "private": true,
   "version": "0.0.0",
+  "author": {
+    "name": "Ludovico Forace",
+    "email": "ludovicoforace@yahoo.com"
+  },
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
