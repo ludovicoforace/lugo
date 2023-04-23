@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import Button from './Button'
 
 export default {
@@ -5,6 +6,22 @@ export default {
   component: Button,
 }
 
-export const RegularButton = () => <Button>Click me</Button>
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
-RegularButton.storyName = 'regular button'
+  button {
+    width: 200px;
+  }
+`
+
+export const All = () => (
+  <Wrapper>
+    <Button>Default</Button>
+    <Button bgColor="rgb(143, 116, 189)">Custom color</Button>
+    <Button disabled>Disabled</Button>
+  </Wrapper>
+)
+
+All.storyName = 'All buttons'
