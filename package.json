@@ -2,27 +2,39 @@
   "name": "lugo",
   "private": true,
   "version": "0.0.0",
+  "author": {
+    "name": "Ludovico Forace",
+    "email": "ludovicoforace@yahoo.com"
+  },
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,md}": "prettier --write",
-    "**/*.{js,jsx,ts,tsx}": "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "**/*.{js,jsx,ts,tsx}": "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-pattern !.storybook"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.6",
+    "@storybook/addon-interactions": "^7.0.6",
+    "@storybook/addon-links": "^7.0.6",
+    "@storybook/blocks": "^7.0.6",
+    "@storybook/react": "^7.0.6",
+    "@storybook/react-vite": "^7.0.6",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react-swc": "^3.0.0",
@@ -30,9 +42,12 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "eslint-plugin-storybook": "^0.6.11",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
     "prettier": "2.8.7",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.6",
     "typescript": "^5.0.2",
     "vite": "^4.3.0"
   },
