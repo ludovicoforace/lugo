@@ -12,19 +12,14 @@ const preview: Preview = {
       },
     },
   },
-}
-
-export const decorators = [
-  (Story) => (
-    <>
-      <GlobalStyle />
-      <Story />
-    </>
-  ),
-]
-
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  decorators: [
+    (Story) => (
+      <>
+        <GlobalStyle />
+        <Story />
+      </>
+    ),
+  ],
 }
 
 export default preview
