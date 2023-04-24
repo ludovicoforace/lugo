@@ -8,6 +8,7 @@ const Button = styled.button<{ disabled?: boolean; bgColor?: string }>`
     const disabledBgColor = grayscale(color.primary)
 
     return `
+      aria-disabled: ${props.disabled ? 'true' : 'false'};
       position: relative;
       top: 0;
       background-color: ${props.disabled ? disabledBgColor : backgroundColor};
