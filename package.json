@@ -2,9 +2,15 @@
   "name": "lugo",
   "private": true,
   "version": "0.0.0",
+  "description": "Lugo design system",
   "author": {
     "name": "Ludovico Forace",
-    "email": "ludovicoforace@yahoo.com"
+    "email": "ludovicoforace@yahoo.com",
+    "url": "https://ludovicoforace.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ludovicoforace/lugo"
   },
   "type": "module",
   "scripts": {
@@ -14,6 +20,7 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build": "tsc && vite build",
+    "clean": "rm -rf dist",
     "build-storybook": "storybook build"
   },
   "lint-staged": {
@@ -22,8 +29,6 @@
   },
   "dependencies": {
     "polished": "^4.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
@@ -53,8 +58,15 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.0"
   },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "engines": {
     "node": ">=18.16.0 <19",
     "npm": ">=9.5.1"
+  },
+  "storybook": {
+    "title": "Lugo Design System"
   }
 }
