@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import { styled } from '@storybook/theming'
 import { lighten, darken, grayscale } from 'polished'
 import { color } from './shared/styles'
 
@@ -8,6 +8,7 @@ const Button = styled.button<{ disabled?: boolean; bgColor?: string }>`
     const disabledBgColor = grayscale(color.primary)
 
     return `
+      aria-disabled: ${props.disabled ? 'true' : 'false'};
       position: relative;
       top: 0;
       background-color: ${props.disabled ? disabledBgColor : backgroundColor};
