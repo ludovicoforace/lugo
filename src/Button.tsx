@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming'
+import styled from 'styled-components'
 import { lighten, darken, grayscale } from 'polished'
 import { color } from './shared/styles'
 

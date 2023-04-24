@@ -1,6 +1,6 @@
-import { Global, css } from '@storybook/theming'
+import { createGlobalStyle } from 'styled-components'
 
-const resetCSS = css`
+const ResetCSS = `
   *,
   *::before,
   *::after {
@@ -137,8 +137,8 @@ const resetCSS = css`
   }
 `
 
-const globalStyle = css`
-  ${resetCSS}
+const GlobalStyle = createGlobalStyle`
+  ${ResetCSS}
 
   html {
     box-sizing: border-box;
@@ -171,5 +171,4 @@ const globalStyle = css`
     color: inherit;
   }
 `
-const GlobalStyle = () => <Global styles={globalStyle} />
 export default GlobalStyle

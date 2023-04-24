@@ -1,4 +1,4 @@
-import { styled } from '@storybook/theming'
+import styled from 'styled-components'
 import Button from './Button'
 
 export default {
