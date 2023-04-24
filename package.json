@@ -13,6 +13,9 @@
     "url": "https://github.com/ludovicoforace/lugo"
   },
   "type": "module",
+  "main": "dist/lugo.cjs.js",
+  "module": "dist/lugo.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
@@ -26,10 +29,6 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,md}": "prettier --write",
     "**/*.{js,jsx,ts,tsx}": "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-pattern !.storybook"
-  },
-  "dependencies": {
-    "polished": "^4.2.2",
-    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.6",
@@ -54,14 +53,17 @@
     "lint-staged": "^13.2.1",
     "prettier": "2.8.7",
     "prop-types": "^15.8.1",
+    "rollup-plugin-visualizer": "^5.9.0",
     "storybook": "^7.0.6",
     "typescript": "^5.0.2",
     "vite": "^4.3.0",
     "vite-plugin-dts": "^2.3.0"
   },
   "peerDependencies": {
+    "polished": "^4.2.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.9"
   },
   "engines": {
     "node": ">=18.16.0 <19",
