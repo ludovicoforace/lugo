@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const resetCSS: string = `
+export const resetCSS = `
   *,
   *::before,
   *::after {
@@ -144,7 +144,7 @@ export const resetCSS: string = `
   word-wrap: break-word;
 `
 
-export const flexBody: string = `
+export const flexBody = `
   html {
     height: 100%;
   }
