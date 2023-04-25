@@ -50,11 +50,11 @@ const Button = styled.button.attrs<{ disabled?: boolean }>(({ disabled }) => ({
           transition: background-color 150ms, top 50ms, border-color 50ms;
 
           &:hover {
-            background-color: ${lighten(0.1, backgroundColor)};
+            background-color: ${lighten(0.05, backgroundColor)};
           }
           &:active {
             top: 3px;
-            border-color: ${lighten(0.1, backgroundColor)};
+            border-color: ${lighten(0.05, backgroundColor)};
           }
         `
       }
