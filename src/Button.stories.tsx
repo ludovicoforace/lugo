@@ -12,16 +12,33 @@ const Wrapper = styled.div`
   gap: 1rem;
 
   button {
-    width: 200px;
+    display: inline-block;
+    align-self: flex-start;
   }
 `
 
-export const All = () => (
+export const AllVoltaire = () => (
   <Wrapper>
     <Button>Default</Button>
     <Button bgColor="rgb(143, 116, 189)">Custom color</Button>
+    <Button shape="rounded">Rounded</Button>
     <Button disabled>Disabled</Button>
   </Wrapper>
 )
+AllVoltaire.storyName = 'Voltaire Button'
 
-All.storyName = 'All buttons'
+export const AllUbuntu = () => (
+  <Wrapper>
+    <Button variant="ubuntu">Default</Button>
+    <Button variant="ubuntu" bgColor="#729d34">
+      Custom color
+    </Button>
+    <Button variant="ubuntu" shape="rounded">
+      Rounded
+    </Button>
+    <Button shape="regular" variant="ubuntu" disabled>
+      Disabled
+    </Button>
+  </Wrapper>
+)
+AllUbuntu.storyName = 'Ubuntu Button'
