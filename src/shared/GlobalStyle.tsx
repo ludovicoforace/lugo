@@ -1,6 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createGlobalStyle } from 'styled-components'
 
-const ResetCSS = `
+export const resetCSS = `
   *,
   *::before,
   *::after {
@@ -114,7 +115,12 @@ const ResetCSS = `
     line-height: 1;
   }
   a {
+    color: inherit;
     text-decoration: none;
+  }
+  button {
+    font-family: inherit;
+    color: inherit;
   }
   ol,
   ul {
@@ -135,38 +141,33 @@ const ResetCSS = `
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  word-wrap: break-word;
+`
+
+export const flexBody = `
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    #root, main {
+      flex: 1;
+    }
+  }
 `
 
 const GlobalStyle = createGlobalStyle`
-  ${ResetCSS}
+  ${resetCSS}
 
   html {
-    box-sizing: border-box;
     font-size: 16px;
     font-family: 'Source Sans Pro', 'Nunito Sans', sans-serif;
-    color: rgb(251, 251, 254);
-  }
-
-  a {
-    color: inherit;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-family: Voltaire, 'Nunito Sans', sans-serif;
-  }
-
-  p {
-    line-height: 1.5;
-  }
-
-  button {
-    color: inherit;
+    color: #fff;
   }
 `
 export default GlobalStyle
