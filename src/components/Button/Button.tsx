@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { lighten, darken, grayscale } from 'polished'
-import { color } from '../shared/styles'
-import FONTS from '../constants/fonts'
+import { color } from '../../shared/styles'
+import FONTS from '../../constants/fonts'
 
 const SHAPES = {
   REGULAR: 'regular',
