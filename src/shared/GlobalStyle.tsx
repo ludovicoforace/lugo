@@ -166,8 +166,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    font-family: Voltaire, 'Nunito Sans';
-    font-size: 1.75em;
     color: inherit;
   }
 `
