@@ -29,14 +29,14 @@ AllVoltaire.storyName = 'Voltaire Button'
 
 export const AllUbuntu = () => (
   <Wrapper>
-    <Button variant="ubuntu">Default</Button>
-    <Button variant="ubuntu" bgColor="#729d34">
+    <Button variant="Ubuntu">Default</Button>
+    <Button variant="Ubuntu" bgColor="#729d34">
       Custom color
     </Button>
-    <Button variant="ubuntu" shape="rounded">
+    <Button variant="Ubuntu" shape="rounded">
       Rounded
     </Button>
-    <Button shape="regular" variant="ubuntu" disabled>
+    <Button shape="regular" variant="Ubuntu" disabled>
       Disabled
     </Button>
   </Wrapper>

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const ResetCSS = `
+export const resetCSS: string = `
   *,
   *::before,
   *::after {
@@ -114,7 +114,12 @@ export const ResetCSS = `
     line-height: 1;
   }
   a {
+    color: inherit;
     text-decoration: none;
+  }
+  button {
+    font-family: inherit;
+    color: inherit;
   }
   ol,
   ul {
@@ -135,23 +140,33 @@ export const ResetCSS = `
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  word-wrap: break-word;
+`
+
+export const flexBody: string = `
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    #root, main {
+      flex: 1;
+    }
+  }
 `
 
 const GlobalStyle = createGlobalStyle`
-  ${ResetCSS}
+  ${resetCSS}
 
   html {
     font-size: 16px;
     font-family: 'Source Sans Pro', 'Nunito Sans', sans-serif;
     color: #fff;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  button {
-    color: inherit;
   }
 `
 export default GlobalStyle
