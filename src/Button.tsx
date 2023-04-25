@@ -12,7 +12,9 @@ const VARIANTS = {
   UBUNTU: 'ubuntu',
 } as const
 
-const Button = styled.button<{
+const Button = styled.button.attrs<{ disabled?: boolean }>(({ disabled }) => ({
+  'aria-disabled': disabled,
+}))<{
   disabled?: boolean
   bgColor?: string
   shape?: (typeof SHAPES)[keyof typeof SHAPES]
@@ -25,8 +27,8 @@ const Button = styled.button<{
     return `
       font-family: ${
         props?.variant === VARIANTS.UBUNTU
-          ? `Ubuntu, 'Nunito Sans'`
-          : `Voltaire, 'Nunito Sans'`
+          ? `Ubuntu, 'Nunito Sans', sans-serif`
+          : `Voltaire, 'Nunito Sans', sans-serif`
       };
       font-size: ${props?.variant === VARIANTS.UBUNTU ? '1.4em' : '1.75em'};
       background-color: ${props.disabled ? disabledBgColor : backgroundColor};

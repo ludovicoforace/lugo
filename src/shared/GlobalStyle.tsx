@@ -143,7 +143,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Source Sans Pro', 'Nunito Sans';
+    font-family: 'Source Sans Pro', 'Nunito Sans', sans-serif;
     color: rgb(251, 251, 254);
   }
 
@@ -158,7 +158,7 @@ const GlobalStyle = createGlobalStyle`
   h1,
   h2,
   h3 {
-    font-family: Voltaire, 'Nunito Sans';
+    font-family: Voltaire, 'Nunito Sans', sans-serif;
   }
 
   p {
