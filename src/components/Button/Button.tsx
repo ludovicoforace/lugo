@@ -24,6 +24,7 @@ const Button = styled.button.attrs<{ disabled?: boolean }>(({ disabled }) => ({
       font-family: ${`${
         props.variant || FONTS.VOLTAIRE
       }, 'Nunito Sans', sans-serif`};
+      ${props.variant === FONTS.UBUNTU && 'font-weight: bold;'}
       font-size: ${props?.variant === FONTS.UBUNTU ? '1.4em' : '1.75em'};
       background-color: ${props.disabled ? disabledBgColor : backgroundColor};
       border-color: ${darken(

@@ -1,16 +1,12 @@
 import styled from 'styled-components'
+import { spacing } from '../../shared/styles'
 
-const maxScrollbarWidth = '20px'
-const Container = styled.div<{
-  maxWidth: string
-  sideMargin: string
-}>`
+const Container = styled.div<{ maxWidth: string }>`
   ${(props) => `
     margin: 0 auto;
     max-width: ${props.maxWidth};
 
-    @media screen and (max-width: calc(${props.maxWidth} + ${maxScrollbarWidth} + ${props.sideMargin} * 2)) {
-      margin: 0 ${props.sideMargin};
+    @media screen and (max-width: calc(${props.maxWidth} + ${spacing.maxScrollbarWidth})) {
       max-width: none;
     }
   `}
