@@ -1,23 +1,62 @@
 import type { HTMLAttributes } from 'react'
 import styled from 'styled-components'
 import { FONTS } from '../..'
-import Hearth from './images/Hearth'
+import { ClubIcon, DiamondIcon, HearthIcon, SpadeIcon } from './icons'
 
-const Content = styled.div`
+const colorMap = {
+  hearts: 'red',
+  diamonds: 'red',
+  spades: 'black',
+  clubs: 'black',
+}
+
+const suitMap = {
+  hearts: HearthIcon,
+  diamonds: DiamondIcon,
+  spades: SpadeIcon,
+  clubs: ClubIcon,
+}
+
+export type Suit = 'hearts' | 'diamonds' | 'spades' | 'clubs'
+export type Rank =
+  | 'A'
+  | 'K'
+  | 'Q'
+  | 'J'
+  | '10'
+  | '9'
+  | '8'
+  | '7'
+  | '6'
+  | '5'
+  | '4'
+  | '3'
+  | '2'
+
+const Content = styled.div<{ suit: Suit }>`
   font-family: ${FONTS.UBUNTU};
   font-size: 30px;
   font-weight: bold;
-  color: red;
+  color: ${({ suit }) => colorMap[suit]};
 `
 
-const PokerCard = styled((props: HTMLAttributes<HTMLDivElement>) => (
-  <div {...props}>
-    <Content>A</Content>
-    <Content>
-      <Hearth />
-    </Content>
-  </div>
-))`
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  rank: Rank
+  suit: Suit
+}
+
+const PokerCard = styled(({ rank, suit, ...rest }: Props) => {
+  const Suit = suitMap[suit]
+
+  return (
+    <div {...rest}>
+      <Content suit={suit}>{rank}</Content>
+      <Content suit={suit}>
+        <Suit />
+      </Content>
+    </div>
+  )
+})`
   display: flex;
   flex-direction: column;
   gap: 40px;
