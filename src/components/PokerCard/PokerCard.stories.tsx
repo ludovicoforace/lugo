@@ -19,4 +19,4 @@ export const AllPokerCards = () => (
     <PokerCard rank="2" suit="spades" />
   </Wrapper>
 )
-AllPokerCards.storyName = 'Default'
+AllPokerCards.storyName = 'All suits'
