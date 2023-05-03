@@ -1,39 +1,15 @@
-import type { HTMLAttributes } from 'react'
+import {
+  PokerCardProps,
+  SuitIconProps,
+  StyledPokerCardProps,
+  hasRankAndSuit,
+  CardTextProps,
+} from './types'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import { FONTS } from '../..'
-import { ClubIcon, DiamondIcon, HearthIcon, SpadeIcon } from './icons'
 import { color } from '../../shared/styles'
-
-const colorMap = {
-  hearts: 'red',
-  diamonds: 'red',
-  spades: 'black',
-  clubs: 'black',
-}
-
-const suitMap = {
-  hearts: HearthIcon,
-  diamonds: DiamondIcon,
-  spades: SpadeIcon,
-  clubs: ClubIcon,
-}
-
-export type Suit = 'hearts' | 'diamonds' | 'spades' | 'clubs'
-export type Rank =
-  | 'A'
-  | 'K'
-  | 'Q'
-  | 'J'
-  | '10'
-  | '9'
-  | '8'
-  | '7'
-  | '6'
-  | '5'
-  | '4'
-  | '3'
-  | '2'
+import { colorMap, suitMap } from './constants'
 
 const linearGradient = `repeating-linear-gradient(
   -55deg,
@@ -43,32 +19,12 @@ const linearGradient = `repeating-linear-gradient(
   ${color.primary} 40px
 )`
 
-const Content = styled.div<{ suit: Suit }>`
+const CardText = styled.div<CardTextProps>`
   font-family: ${FONTS.UBUNTU};
   font-size: 30px;
   font-weight: bold;
   color: ${({ suit }) => colorMap[suit]};
 `
-
-type RankAndSuit = {
-  rank: Rank
-  suit: Suit
-}
-
-type WithoutRankAndSuit = {
-  rank?: undefined
-  suit?: undefined
-}
-
-type Props = (RankAndSuit | WithoutRankAndSuit) & HTMLAttributes<HTMLDivElement>
-
-const hasRankAndSuit = (props: Props): props is RankAndSuit => {
-  return !!(props.rank && props.suit)
-}
-
-type StyledPokerCardProps = Props & {
-  reversed: boolean
-}
 
 const StyledPokerCard = styled.div<StyledPokerCardProps>`
   width: 120px;
@@ -93,22 +49,22 @@ const StyledPokerCard = styled.div<StyledPokerCardProps>`
   `}
 `
 
-const SuitIcon = ({ suit }: { suit: Suit }) => {
+const SuitIcon = ({ suit }: SuitIconProps) => {
   const Icon = suitMap[suit]
   return <Icon />
 }
 
-const PokerCard = (props: Props) => {
+const PokerCard = (props: PokerCardProps) => {
   const reversed = !hasRankAndSuit(props)
 
   return (
     <StyledPokerCard reversed={reversed} {...props}>
       {!reversed && (
         <>
-          <Content suit={props.suit}>{props.rank}</Content>
-          <Content suit={props.suit}>
+          <CardText suit={props.suit}>{props.rank}</CardText>
+          <CardText suit={props.suit}>
             <SuitIcon suit={props.suit} />
-          </Content>
+          </CardText>
         </>
       )}
     </StyledPokerCard>
