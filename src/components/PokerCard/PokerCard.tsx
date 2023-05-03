@@ -1,72 +1,74 @@
-import type { HTMLAttributes } from 'react'
+import {
+  PokerCardProps,
+  SuitIconProps,
+  StyledPokerCardProps,
+  hasRankAndSuit,
+  CardTextProps,
+} from './types'
 import styled from 'styled-components'
+import { darken } from 'polished'
 import { FONTS } from '../..'
-import { ClubIcon, DiamondIcon, HearthIcon, SpadeIcon } from './icons'
+import { color } from '../../shared/styles'
+import { colorMap, suitMap } from './constants'
 
-const colorMap = {
-  hearts: 'red',
-  diamonds: 'red',
-  spades: 'black',
-  clubs: 'black',
-}
+const linearGradient = `repeating-linear-gradient(
+  -55deg,
+  ${darken(0.2, color.primary)},
+  ${darken(0.2, color.primary)} 20px,
+  ${color.primary} 20px,
+  ${color.primary} 40px
+)`
 
-const suitMap = {
-  hearts: HearthIcon,
-  diamonds: DiamondIcon,
-  spades: SpadeIcon,
-  clubs: ClubIcon,
-}
-
-export type Suit = 'hearts' | 'diamonds' | 'spades' | 'clubs'
-export type Rank =
-  | 'A'
-  | 'K'
-  | 'Q'
-  | 'J'
-  | '10'
-  | '9'
-  | '8'
-  | '7'
-  | '6'
-  | '5'
-  | '4'
-  | '3'
-  | '2'
-
-const Content = styled.div<{ suit: Suit }>`
+const CardText = styled.div<CardTextProps>`
   font-family: ${FONTS.UBUNTU};
   font-size: 30px;
   font-weight: bold;
   color: ${({ suit }) => colorMap[suit]};
 `
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  rank: Rank
-  suit: Suit
-}
-
-const PokerCard = styled(({ rank, suit, ...rest }: Props) => {
-  const Suit = suitMap[suit]
-
-  return (
-    <div {...rest}>
-      <Content suit={suit}>{rank}</Content>
-      <Content suit={suit}>
-        <Suit />
-      </Content>
-    </div>
-  )
-})`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-  background-color: #e6e6e6;
-  border-radius: 15px;
-  box-shadow: 0 1px 4px #5f5f63;
-  padding: 20px;
+const StyledPokerCard = styled.div<StyledPokerCardProps>`
   width: 120px;
   height: 200px;
+  box-shadow: 0 1px 4px #5f5f63;
+  border-radius: 15px;
+
+  ${({ reversed }) => `
+    background-color: ${reversed ? color.primary : '#e6e6e6'};
+
+    ${
+      reversed
+        ? `background: ${linearGradient}`
+        : `
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      padding: 20px;
+    `
+    }
+  `}
 `
+
+const SuitIcon = ({ suit }: SuitIconProps) => {
+  const Icon = suitMap[suit]
+  return <Icon />
+}
+
+const PokerCard = (props: PokerCardProps) => {
+  const reversed = !hasRankAndSuit(props)
+
+  return (
+    <StyledPokerCard reversed={reversed} {...props}>
+      {!reversed && (
+        <>
+          <CardText suit={props.suit}>{props.rank}</CardText>
+          <CardText suit={props.suit}>
+            <SuitIcon suit={props.suit} />
+          </CardText>
+        </>
+      )}
+    </StyledPokerCard>
+  )
+}
 
 export default PokerCard

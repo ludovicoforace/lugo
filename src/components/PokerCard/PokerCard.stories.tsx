@@ -20,3 +20,7 @@ export const AllPokerCards = () => (
   </Wrapper>
 )
 AllPokerCards.storyName = 'All suits'
+
+export const PokerCardReversed = () => <PokerCard />
+
+PokerCardReversed.storyName = 'Reversed'
