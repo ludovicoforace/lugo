@@ -2,7 +2,7 @@ import {
   PokerCardProps,
   SuitIconProps,
   StyledPokerCardProps,
-  hasRankAndSuit,
+  hasSuitAndRank,
   CardTextProps,
 } from './types'
 import styled from 'styled-components'
@@ -55,7 +55,7 @@ const SuitIcon = ({ suit }: SuitIconProps) => {
 }
 
 const PokerCard = (props: PokerCardProps) => {
-  const reversed = !hasRankAndSuit(props)
+  const reversed = !hasSuitAndRank(props)
 
   return (
     <StyledPokerCard reversed={reversed} {...props}>

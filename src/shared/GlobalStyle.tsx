@@ -145,7 +145,7 @@ export const resetCSS = `
   word-wrap: break-word;
 `
 
-export const flexBody = `
+const flexBody = `
   html {
     height: 100%;
   }
@@ -163,6 +163,7 @@ export const flexBody = `
 
 const GlobalStyle = createGlobalStyle`
   ${resetCSS}
+  ${flexBody}
 
   html {
     font-size: 16px;

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react'
 
-type Suit = 'hearts' | 'diamonds' | 'spades' | 'clubs'
-type Rank =
+export type Suit = 'hearts' | 'diamonds' | 'spades' | 'clubs'
+export type Rank =
   | 'A'
   | 'K'
   | 'Q'
@@ -16,14 +16,14 @@ type Rank =
   | '3'
   | '2'
 
-type RankAndSuit = {
-  rank: Rank
+export type SuitAndRank = {
   suit: Suit
+  rank: Rank
 }
 
 type WithoutRankAndSuit = {
-  rank?: undefined
   suit?: undefined
+  rank?: undefined
 }
 
 export interface SuitIconProps {
@@ -34,13 +34,13 @@ export interface CardTextProps {
   suit: Suit
 }
 
-export type PokerCardProps = (RankAndSuit | WithoutRankAndSuit) &
+export type PokerCardProps = (SuitAndRank | WithoutRankAndSuit) &
   HTMLAttributes<HTMLDivElement>
 
 export type StyledPokerCardProps = PokerCardProps & {
   reversed: boolean
 }
 
-export const hasRankAndSuit = (props: PokerCardProps): props is RankAndSuit => {
-  return !!(props.rank && props.suit)
+export const hasSuitAndRank = (props: PokerCardProps): props is SuitAndRank => {
+  return !!(props.suit && props.rank)
 }
