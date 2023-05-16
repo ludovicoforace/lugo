@@ -1,6 +1,22 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createGlobalStyle } from 'styled-components'
 
+const flexBody = `
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+
+    #root, main {
+      flex: 1;
+    }
+  }
+`
+
 export const resetCSS = `
   *,
   *::before,
@@ -143,27 +159,11 @@ export const resetCSS = `
   }
 
   word-wrap: break-word;
-`
-
-const flexBody = `
-  html {
-    height: 100%;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-
-    #root, main {
-      flex: 1;
-    }
-  }
+  ${flexBody}
 `
 
 const GlobalStyle = createGlobalStyle`
   ${resetCSS}
-  ${flexBody}
 
   html {
     font-size: 16px;
