@@ -14,20 +14,11 @@ export default defineConfig({
       fileName: (format) => `lugo.${format}.js`,
     },
     rollupOptions: {
-      external: [
-        'react',
-        'react-dom',
-        'styled-components',
-        'polished',
-        'react-icons',
-      ],
+      external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          'styled-components': 'StyledComponents',
-          polished: 'polished',
-          'react-icons': 'ReactIcons',
         },
       },
     },
