@@ -15,6 +15,9 @@
   "type": "module",
   "main": "dist/lugo.cjs.js",
   "module": "dist/lugo.es.js",
+  "files": [
+    "dist"
+  ],
   "types": "dist/index.d.ts",
   "scripts": {
     "prettier:check": "prettier --check .",
@@ -22,13 +25,22 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "clean": "rm -rf dist",
     "build-storybook": "storybook build"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,md}": "prettier --write",
     "**/*.{js,jsx,ts,tsx}": "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --ignore-pattern !.storybook"
+  },
+  "dependencies": {
+    "polished": "^4.2.2",
+    "react-icons": "^4.9.0",
+    "styled-components": "^5.3.11"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.6",
@@ -58,13 +70,6 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.0",
     "vite-plugin-dts": "^2.3.0"
-  },
-  "peerDependencies": {
-    "polished": "^4.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
-    "styled-components": "^5.3.10"
   },
   "engines": {
     "node": ">=18.16.0 <19",
